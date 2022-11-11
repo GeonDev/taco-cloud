@@ -19,27 +19,27 @@ import org.springframework.validation.Errors;
 @RequestMapping("/orders")
 @SessionAttributes("order")
 public class OrderController {
-
+	
 	private OrderRepository orderRepo;
-
+	
 	public OrderController(OrderRepository orderRepo) {
 		this.orderRepo = orderRepo;
 	}
-
+	
 	@GetMapping("/current")
 	public String orderForm() {
 		return "orderForm";
 	}
-
+	
 	@PostMapping
 	public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
 		if (errors.hasErrors()) {
 			return "orderForm";
 		}
-
+		
 		orderRepo.save(order);
 		sessionStatus.setComplete();
-
+		
 		return "redirect:/";
 	}
 }
