@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.passwordEncoder(encoder());
 		
 		// 아래 코드는 책의 LDAP 기반 사용자 스토어 예제 코드입니다.
-		/*auth
+		auth
 		.ldapAuthentication()
 		.userSearchBase("ou=people")
 		.userSearchFilter("(uid={0})")
@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.passwordCompare()
 		.passwordEncoder(new BCryptPasswordEncoder())
-		.passwordAttribute("userPasscode");*/
+		.passwordAttribute("userPasscode");
 		
 		// 아래 코드는 책의 JDBC 기반 사용자 스토어 예제 코드입니다.
 		/*@Autowired
