@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import java.util.Date;
@@ -31,6 +32,9 @@ public class Order implements Serializable {
 	private Long id;
 
 	private Date placedAt;
+
+	@ManyToOne
+	private User user;
 
 	@NotBlank(message="Name is required")
 	private String deliveryName;
